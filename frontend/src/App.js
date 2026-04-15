@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import client from "./nakama";
 
+const isProduction = window.location.hostname !== "localhost";
+
 function App() {
   const [screen, setScreen] = useState("menu"); // "menu", "game", "leaderboard"
   const [mode, setMode] = useState(null); // "ai", "pvp", "timed"
@@ -42,7 +44,7 @@ function App() {
     const session = await client.authenticateDevice(deviceId);
     sessionRef.current = session;
 
-    const s = client.createSocket(false, false);
+    const s = client.createSocket(isProduction, false);
 
     s.onmatchdata = (data) => {
       if (data.op_code === 1) {
@@ -86,7 +88,7 @@ function App() {
     const deviceId = "device-" + Math.random().toString(36).substring(2);
     const session = await client.authenticateDevice(deviceId);
     sessionRef.current = session;
-    const s = client.createSocket(false, false);
+    const s = client.createSocket(isProduction, false);
     await s.connect(session, true);
     
     const modeParam = selectedMode === "timed" ? "timed" : "pvp";
@@ -130,7 +132,7 @@ function App() {
     const deviceId = "device-" + Math.random().toString(36).substring(2);
     const session = await client.authenticateDevice(deviceId);
     sessionRef.current = session;
-    const s = client.createSocket(false, false);
+    const s = client.createSocket(isProduction, false);
     await s.connect(session, true);
     
     const result = await s.rpc("get_leaderboard", "");
