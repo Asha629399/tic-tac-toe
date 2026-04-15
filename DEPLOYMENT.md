@@ -35,7 +35,7 @@
    - **Value**: Paste the Internal Database URL from Step 1
 5. Click **"Create Web Service"**
 6. Wait for deployment (5-10 minutes)
-7. **Copy your Nakama service URL** (e.g., `https://tic-tac-toe-nakama.onrender.com`)
+7. **Copy your Nakama service URL** (e.g., `https://tic-tac-toe-nakama-2q2x.onrender.com`)
 
 ## Step 3: Deploy React Frontend
 
@@ -49,7 +49,7 @@
    - **Publish Directory**: `build`
 4. Add Environment Variables:
    - **Key**: `REACT_APP_NAKAMA_HOST`
-   - **Value**: Your Nakama URL without `https://` (e.g., `tic-tac-toe-nakama.onrender.com`)
+   - **Value**: Your Nakama URL without `https://` (e.g., `tic-tac-toe-nakama-2q2x.onrender.com`)
    - **Key**: `REACT_APP_NAKAMA_PORT`
    - **Value**: `443`
    - **Key**: `REACT_APP_NAKAMA_USE_SSL`
@@ -59,7 +59,7 @@
 
 ## Step 4: Access Your App
 
-Your frontend will be available at: `https://tic-tac-toe-frontend.onrender.com`
+Your frontend will be available at: `https://tic-tac-toe-frontend-5aop.onrender.com`
 
 ## Important Notes
 
