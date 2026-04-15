@@ -3,12 +3,12 @@ FROM heroiclabs/nakama:3.17.1
 # Copy backend modules
 COPY backend/ /nakama/data/modules/
 
-# Copy and set up start script
+# Copy start script
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Expose Nakama ports
 EXPOSE 7350
 
-# Use shell form to ensure environment variables are expanded
-CMD ["/bin/sh", "/start.sh"]
+# Override the entrypoint to use our script
+ENTRYPOINT ["/start.sh"]
