@@ -1,10 +1,12 @@
 import { Client } from "@heroiclabs/nakama-js";
 
 const isProduction = window.location.hostname !== "localhost";
-const useSSL = isProduction ? true : false;
-const host = isProduction ? "tic-tac-toe-nakama-2q2x.onrender.com" : "127.0.0.1";
-const port = isProduction ? "443" : "7350";
 
-const client = new Client("defaultkey", host, port, useSSL);
+let client;
+if (isProduction) {
+  client = new Client("defaultkey", "tic-tac-toe-nakama-2q2x.onrender.com", "443", true);
+} else {
+  client = new Client("defaultkey", "127.0.0.1", "7350", false);
+}
 
 export default client;
